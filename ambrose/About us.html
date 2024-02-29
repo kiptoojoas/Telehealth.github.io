@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TELEHEALTH</title>
+    <script src="https://kit.fontawesome.com/2839c03294.js" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="edu.css">
+    <link rel="" href="edu.js">
+    <script src="edu.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+  
+    <link rel="stylesheet" href="edu.css">
+    <link rel="stylesheet" href="crsl.css">
+    <link rel="" href="edu.js">
+    <script src="edu.js"></script>
+    <script src="crsl.js"></script>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root{
+  --primary-color: #004D49;
+  --secondary: #FFF6E5;
+  --black: #141414;
+  --white: #fff;
+  --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+*{
+  font-family: "Poppins", sans-serif;
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  outline: none; border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all .2s linear;
+}
+
+html{
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 9rem;
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+  width: 1rem;
+}
+
+html::-webkit-scrollbar-track{
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+  background: #004D49;
+}
+
+section{
+  padding: 5rem 7%;
+}
+
+.heading{
+  position: relative;
+  color: var(--primary-color);
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .4rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.heading::after{
+  content: url('./img/separator.png');
+  display: block;
+  width: 10rem;
+  margin-inline: 52rem;
+  /* margin-top: 1rem; */
+}
+
+.btn{
+  position: relative;
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  max-width: max-content;
+  border: .1rem solid var(--primary-color);
+  background: var(--secondary);
+  padding: 1.2rem 4.5rem;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: .5rem;
+}
+
+.btn::before{
+  content: "";
+  position: absolute;
+  bottom: 100%; left: 50%;
+  transform: translateX(-50%);
+  width: 200%; height: 200%;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  transition: 500ms ease;
+  z-index: -1;
+}
+
+.btn .text{
+  transition: 250ms ease;
+}
+
+.btn .text-2{
+  position: absolute;
+  top: 100%; left: 50%;
+  transform: translateX(-50%);
+  min-width: max-content;
+  color: var(--secondary);
+}
+
+.btn:is(:hover, :focus-visible)::before{
+  bottom: -50%;
+}
+
+.btn:is(:hover, :focus-visible) .text-1{
+  transform: translateY(-4rem);
+}
+
+.btn:is(:hover, :focus-visible) .text-2{
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.shine{
+  position: relative;
+}
+
+.shine::after{
+  content: "";
+  position: absolute;
+  top: 0; left: 0; 
+  width: 50%;
+  height: 100%;
+  background-image: linear-gradient(to right, transparent 0%, #fff6 100%);
+  transform: skewX(-0.08turn) translateX(-180%);
+}
+
+.shine:is(:hover, :focus-within)::after{
+  transform: skewX(-0.08turn) translateX(275%);
+  transition: 1000ms ease;
+}
+
+
+
+.logo{
+  cursor: pointer;
+}
+
+
+.header{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 9%;
+}
+
+.header .logo{
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: var(--black);
+}
+
+.header .logo i{
+  color: var(--primary-color);
+  padding-right: .5rem;
+}
+
+.header .navbar a{
+  font-size: 1.7rem;
+  color: #004D49;
+  margin: 0 1rem;
+  padding-block: 1rem;
+  text-decoration: none;
+}
+
+.header .navbar a:hover{
+  color: #54E5B1;
+}
+
+.header .navbar .hover-underline{
+  position: relative;
+  max-width: max-content;
+}
+
+.header .navbar .hover-underline::after{
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%;
+  height: .5rem;
+  border-block: .1rem solid var(--primary-color);
+  transform: scaleX(0.2);
+  opacity: 0;
+  transition: 500ms ease;
+}
+
+.header .navbar .hover-underline:is(:hover, :focus-visible)::after{
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.header .icons div{
+  font-size: 2.5rem;
+  margin-left: 1.7rem;
+  color: #004D49;
+  cursor: pointer;
+}
+
+.header .icons div:hover{
+  color:#54E5B1;;
+}
+
+#menu-btn{
+  display: none;
+}
+
+.header .login-form{
+  position: absolute;
+  top: 115%; right: -105%;
+  background: var(--white);
+  box-shadow: .5rem;
+  width: 35rem;
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+}
+
+.header .login-form.active{
+  right: 2rem;
+  transition: .4s linear;
+}
+
+.header .login-form h3{
+  font-size: 2.2rem;
+  color: var(--black);
+  text-align: center;
+  margin-bottom: .7rem;
+}
+
+.header .login-form .box{
+  font-size: 1.5rem;
+  margin: .7rem 0;
+  border: .1rem solid rgba(0, 0, 0, 0.1);
+  padding: 1rem 1.2rem;
+  color: var(--black);
+  text-transform: none;
+  width: 100%;
+}
+
+.header .login-form .remember{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin: .7rem 0;
+}
+
+.header .login-form .remember label{
+  font-size: 1.5rem;
+  color: var(--black);
+  cursor: pointer;
+}
+
+
+.home{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: url("./img/Add\ a\ heading_20230915_195700_0000.png") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.home .content{
+  max-width: 50rem;
+}
+
+.home .content h3{
+  font-size: 5rem;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.home .content p{
+  font-size: 1.5rem;
+  line-height: 2;
+  color: var(--white);
+  padding: 1rem 0;
+}
+
+
+.about .container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about .container .about-image{
+  border-style: dotted ;
+  position: relative;
+  flex: 1 1 30rem;
+}
+
+/* .about .container .about-image img{
+  width: 80%;
+} */
+
+.about .container .about-image .about-img{
+  position: absolute;
+  bottom: -10rem;
+  right: -1rem;
+  width: 25rem;
+  padding-block: 5rem;
+}
+
+.about .container .about-content{
+  flex: 1 1 50rem;
+  padding-left: 5rem;
+  padding-top: 0rem;
+}
+
+.about .container .about-content h3{
+  font-size: 3rem;
+  color: var(--primary-color);
+}
+
+.about .container .about-content p{
+  font-size: 1.6rem;
+  color: #444;
+  padding: 1rem 0;
+  line-height: 1.8;
+}
+
+/* ends */
+
+/* subjects */
+
+.subjects .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 2rem;
+}
+
+.subjects .box-container .box{
+  padding: 3rem 2rem;
+  text-align: center;
+  border: .1rem solid var(--primary-color);
+  background: var(--secondary);
+  cursor: pointer;
+}
+
+.subjects .box-container .box:hover{
+  background: var(--primary-color);
+}
+
+.subjects .box-container .box img{
+  height: 10rem;
+  margin-bottom: .7rem;
+}
+
+.subjects .box-container .box h3{
+  font-size: 1.7rem;
+  color: #444;
+  padding: .5rem 0;
+  text-transform: capitalize;
+}
+
+.subjects .box-container .box:hover h3{
+  color: #fff;
+}
+
+.subjects .box-container .box p{
+  font-size: 1.5rem;
+  line-height: 2;
+  color: #777;
+}
+
+.subjects .box-container .box:hover p{
+  color: #eee;
+}
+
+
+.courses .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 2rem;
+}
+
+.courses .box-container .box .image{
+  height: 25rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.courses .box-container .box .image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.courses .box-container .box:hover .image img{
+  transform: scale(1.1);
+}
+
+.courses .box-container .box .image h3{
+  font-size: 1.5rem;
+  color: #444;
+  position: absolute;
+  top: 1rem; left: 1rem;
+  padding: .5rem 1.5rem;
+  background: var(--white);
+}
+
+.courses .box-container .box .content{
+  padding: 2rem;
+  position: relative;
+  border: 0.1rem solid var(--primary-color);
+}
+
+.courses .box-container .box .content h4{
+  position: absolute;
+  background: var(--primary-color);
+  color: var(--secondary);
+  top: -3rem; right: 1.5rem;
+  width: 6rem; 
+  height: 6rem;
+  line-height: 6rem;
+  text-align: center;
+  font-size: 1.4rem;
+  border-radius: 50%;
+}
+
+.courses .box-container .box .content p{
+  font-size: 1.4rem;
+  color: #444;
+  line-height: 2;
+}
+
+.courses .box-container .box .content h3{
+  font-size: 2rem;
+  color: #444;
+}
+
+.courses .box-container .box .content .stars{
+  padding: 1rem 0;
+}
+
+.courses .box-container .box .content .stars i{
+  font-size: 1.7rem;
+  color: var(--primary-color);
+}
+
+.courses .box-container .box .content .stars span{
+  font-size: 1.4rem;
+  color: #777;
+  margin-left: .5rem;
+}
+
+.courses .box-container .box .content .icons{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 0.1rem solid var(--primary-color);
+}
+
+.courses .box-container .box .content .icons span{
+  font-size: 1.5rem;
+  color: #444;
+}
+
+.courses .box-container .box .content .icons span i{
+  color: var(--primary-color);
+  padding-right: .5rem;
+}
+
+
+.teacher .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 2rem;
+}
+
+.teacher .box-container .box{
+  background: var(--white);
+  box-shadow: var(--box-shadow);
+  border-radius: .5rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.teacher .box-container .box .image{
+  position: relative;
+  overflow: hidden;
+}
+
+.teacher .box-container .box .image img{
+  background: var(--secondary);
+  width: 100%;
+}
+
+.teacher .box-container .box:hover .image .share{
+  bottom: 0;
+}
+
+.teacher .box-container .box .image .share{
+  position: absolute;
+  bottom: -10rem; 
+  left: 0; right: 0;
+  padding: 2rem;
+}
+
+.teacher .box-container .box .image .share a{
+  height: 4rem;
+  width: 4rem;
+  line-height: 4rem;
+  font-size: 2rem;
+  margin: 0 1rem;
+  color: var(--secondary);
+  background: var(--primary-color);
+  border-radius: .5rem;
+}
+
+.teacher .box-container .box .image .share a:hover{
+  color: var(--primary-color);
+  background: var(--secondary);
+}
+
+.teacher .box-container .box .content{
+  padding: 2rem;
+  padding-top: 1rem;
+  align-items: center;
+}
+
+.teacher .box-container .box .content h3{
+  font-size: 2rem;
+  color: var(--black);
+}
+
+.teacher .box-container .box .content span{
+  font-size: 1.5rem;
+  line-height: 2;
+  color: #777;
+}
+
+
+
+.review .slide{
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  border-radius: 2rem;
+  position: relative;
+}
+
+.review .slide p{
+  font-size: 1.5rem;
+  text-align: center;
+  padding-bottom: .5rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+.review .slide .wrapper{
+  display: flex;
+  justify-content: center;
+  gap: .3rem;
+}
+
+.review .slide .wrapper .separator{
+  width: .8rem;
+  height: .8rem;
+  border: .1rem solid var(--primary-color);
+  transform: rotate(45deg);
+  animation: rotate360 15s linear infinite;
+}
+
+@keyframes rotate360{
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(1turn);
+  }
+}
+
+.review .slide .fa-quote-right{
+  position: absolute;
+  /* bottom: 3rem; right: 3rem; */
+  margin-right: auto;
+  font-size: rem;
+  color: var(--primary-color);
+}
+
+.review .slide .quote-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 4rem;
+  color: var(--primary-color);
+}
+
+.review .slide .user{
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: .5rem;
+  position: relative;
+}
+
+.review .slide .user img{
+  height: 7rem;
+  width: 7rem;
+  border-radius: 15%;
+  object-fit: cover;
+  border: .1rem solid var(--primary-color);
+  padding: .5rem;
+  cursor: pointer;
+}
+
+.review .slide .user h3{
+  font-size: 2rem;
+  padding-bottom: .5rem;
+}
+
+.review .slide .user-info:hover{
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+
+.review .slide .user .stars i{
+  font-size: 1.3rem;
+  color: var(--primary-color);
+}
+
+.blog .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+}
+
+.blog .box-container .box{
+  box-shadow: var(--box-shadow);
+  border-radius: 2rem;
+}
+
+.blog .box-container .box .image{
+  height: 25rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 2rem 2rem 0 0;
+}
+
+.blog .box-container .box .image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.blog .box-container .box:hover .image img{
+  transform: scale(1.1);
+}
+
+.blog .box-container .box .image h3{
+  font-size: 1.5rem;
+  color: #444;
+  position: absolute;
+  top: 1.5rem; left: 1rem;
+  padding: .5rem 1.5rem;
+  background: var(--white);
+  border-radius: 2rem 0 2rem 0;
+}
+
+.blog .box-container .box .content{
+  padding: 2rem 2rem;
+  background: var(--secondary);
+  border-radius: 0 0 2rem 2rem;
+}
+
+.blog .box-container .box .content .icons{
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.blog .box-container .box .content .icons a{
+  font-size: 1.4rem;
+  color: var(--primary-color);
+}
+
+.blog .box-container .box .content .icons a i{
+  padding-right: .5rem;
+}
+
+.blog .box-container .box .content h3{
+  font-size: 2.2rem;
+  color: var(--black);
+}
+
+.blog .box-container .box .content p{
+  font-size: 1.5rem;
+  color: var(--black);
+  line-height: 2;
+  padding: 1rem 0;
+}
+
+
+.contact .row{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.contact .row .image{
+  flex: 1 1 40rem;
+}
+
+.contact .row .image img{
+  width: 100%;
+}
+
+.contact .row form{
+  flex: 1 1 40rem;
+  border: 0.1rem solid var(--primary-color);
+  padding: 2rem;
+}
+
+.contact .row form h3{
+  font-size: 2.5rem;
+  color: #444;
+  padding-bottom: 1rem;
+}
+
+.contact .row form .box{
+  width: 100%;
+  font-size: 1.6rem;
+  padding: 1.2rem 1.4rem;
+  border: .1rem solid var(--primary-color);
+  margin: .7rem 0;
+}
+
+.contact .row form .box:focus{
+  color: var(--primary-color);
+}
+
+.contact .row form textarea{
+  height: 15rem;
+  resize: none;
+}
+
+
+.footer{
+  background: var(--secondary);
+  text-align: center;
+}
+
+.footer .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 2rem;
+}
+
+.footer .box-container .box h3{
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  padding: 1rem 0;
+}
+
+.footer .box-container .box p{
+  font-size: 1.5rem;
+  color: var(--black);
+  line-height: 2;
+  padding: 1rem 0;
+}
+
+.footer .box-container .box .share{
+  margin-top: 1rem;
+}
+
+.footer .box-container .box .share a{
+  height: 4.5rem;
+  width: 4.5rem;
+  line-height: 4.5rem;
+  border-radius: 10%;
+  font-size: 1.7rem;
+  border: .1rem solid var(--primary-color);
+  color: var(--primary-color);
+  margin-right: .3rem;
+  text-align: center;
+}
+
+.footer .box-container .box .share a:hover{
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+.footer .box-container .box .link{
+  font-size: 1.7rem;
+  line-height: 2;
+  color: var(--black);
+  padding: .5rem 0;
+  display: block;
+}
+
+.footer .box-container .box .link:hover{
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.footer .credit{
+  font-size: 2rem;
+  margin-top: 3rem;
+  padding-top: 3rem;
+  text-align: center;
+  color: var(--black);
+  border-top: .1rem solid var(--primary-color);
+}
+
+.footer .credit span{
+  color: var(--primary-color);
+}
+
+
+
+@media (max-width:991px){
+
+  html{
+    font-size: 55%;
+  }
+
+  .header{
+    padding: 2rem 4rem;
+  }
+
+  section{
+    padding: 3rem 2rem;
+  }
+
+}
+
+@media (max-width:768px){
+
+  #menu-btn{
+    display: inline-block;
+  }
+
+  .header .navbar{
+    position: absolute;
+    top: 110%; right: -110%;
+    width: 30rem;
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    background: var(--white);
+  }
+
+  .header .navbar.active{
+    right: 2rem;
+    transition: .4s linear;
+  }
+
+  .header .navbar a{
+    font-size: 2rem;
+    margin: 1rem 2.5rem;
+    display: block;
+  }
+
+  .home .content h3{
+    font-size: 3rem;
+  }
+
+  .about .container .about-content{
+    padding-left: 0;
+  }
+
+}
+
+@media (max-width:450px){
+  html{
+    font-size: 50%;
+  }
+}
+.blog__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.blog__details {
+  display: grid;
+  gap: 0.5rem;
+  color: var(--text-dark);
+}
+
+.blog__details p {
+  font-size: 15px;
+}
+
+.blog__details h4 {
+  font-size: 20px;
+  font-weight: 500;
+
+}
+
+.blog__details span {
+  width: fit-content;
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.blog__details a:hover {
+  color: var(--secondary-color);
+
+}
+
+.section__container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
+}
+
+.section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+.section__title {
+  font-size: 30px;
+  font-weight: 600;
+  color: #004D49;
+}
+
+.btn1 {
+  border-radius: 0;
+  padding: 14px 38px;
+}
+
+.btn1-brand {
+  color: #fff;
+  font-weight: 500;
+  border-color: #F58d17;
+  background-color: #F58d17;
+}
+
+.btn1-brand:hover {
+  border-color: #d37810;
+  background-color: #d37810;
+  color: #fff;
+}
+
+.bg-cover {
+  background-position: center !important;
+  background-size: 20px!important;
+  background-repeat: no-repeat !important;
+}
+
+.slide-1 {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./img/beyond-moringa-indonesia.jpg);
+}
+
+.slide-2 {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./img/ezgif.com-webp-to-jpg-38.jpg);
+}
+
+#heroSlider h6::after,
+#heroSlider h6::before {
+  content: " ";
+  width: 40px;
+  height: 4px;
+  background-color: #ffffff;
+  display: inline-block;
+  margin: 10px;
+  vertical-align: middle;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: rgba(0,0,0,0.6);
+  width: 40px;
+  height: 70px;
+  margin: auto;
+}
+
+.blog__card img{
+  width:350px;
+   
+}
+
+#heroSlider h6::after,
+#heroSlider h6::before {
+    content: " ";
+    width: 40px;
+    height: 4px;
+    background-color: #ffffff;
+    display: inline-block;
+    margin: 10px;
+    vertical-align: middle;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: rgba(0,0,0,0.6);
+    width: 40px;
+    height: 70px;
+    margin: auto;
+}
+.card{
+  border-radius: 25px;
+  background-color:#FFF;
+  width: 320px;
+}
+.card-image{
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background: #FFF;
+  padding: 3px;
+}
+.card-image .card-img{
+  height: 100%;
+  width: 100%; 
+  object-fit: cover;
+  border:4px solid #4070f4;
+  border-radius: 50%;
+}
+.image-content,
+
+.card-content{ display: flex;
+
+flex-direction: column;
+
+align-items: center;
+
+padding: 10px 14px;
+
+}
+.image-content{
+  row-gap: 5px;
+}
+.overlay{
+
+position: absolute;
+left: 0;
+top: 0;
+height: 100%;
+width: 100%;
+background-color: #4070F4;
+border-radius: 25px 25px 0 25px;
+
+}
+.card-image{
+position: relative;
+height: 150px;
+width: 150px;
+border-radius: 50%;
+background: #FFF;
+padding: 3px;
+}
+
+
+.name{
+
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+   }
+  
+ 
+   .description{
+  font-size: 14px;
+  color: #707070;
+  text-align: center;
+  }
+
+  
+.button{
+  border: none;
+  font-size: 16px;
+  color: #FFF;
+  padding: 8px 16px;
+  background-color: #4070F4;
+  border-radius: 6px;
+  margin: 14px;
+  cursor: pointer;
+  transition: all 0,3s ease;
+}
+
+
+.work__grid {
+  margin-top: 4rem;
+  margin-left: 40px;
+  margin-right: 40px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.work__grid1 {
+  
+  margin-left: 50px;
+  margin-right: 50px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.work__card {
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+}
+
+.work__card a{
+  color: #333;
+  text-decoration: none;
+}
+.work__card a:hover{
+  color:#004D49
+}
+.work__card:hover {
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.4);
+  color:#004D49
+}
+
+.work__card span {
+  display: inline-block;
+  margin-bottom: 2rem;
+  padding: 21px 24px;
+  font-size: 2rem;
+  color: var(--white);
+  border-radius: 10px;
+}
+
+.work__card:nth-child(1) span {
+  background-color: #004d49c6;
+  box-shadow: 2px 10px 40px var(--primary-color);
+}
+
+.work__card:nth-child(2) span {
+  background-color: #004D49;
+  box-shadow: 2px 10px 40px #00393C;
+}
+
+.work__card:nth-child(3) span {
+  background-color: #004d49c6;
+  box-shadow: 2px 10px 40px var(--primary-color);
+}
+
+.work__card h4 {
+  margin-bottom: 1rem;
+  font-size: 25px;
+  color: var(--text-dark);
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+}
+
+.work__card p {
+  line-height: 1.5rem;
+  font-size: 12px;
+  color: var(--text-light);
+}
+  
+.section__container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
+}
+
+.section__header {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+  margin-left: 10%;
+}
+
+.section__header1{
+   margin-top: 100px;
+   margin-left: 40%;
+   font-size: 40px;
+   margin-bottom: 20px;
+}
+
+.spacer {
+  height: 100px;
+}
+
+.help{
+  bottom: 20px;
+  right: 30px;
+  position:fixed;
+  cursor: pointer;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Background color with transparency */
+  color: #fff; /* Text color */
+  padding: 2px; /* Padding around the text */
+  font-size: 10px; /* Text size */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s; /* Add a smooth transition effect */
+}
+
+.help:hover .overlay-text {
+  opacity: 1; /* Display text on hover */
+}
+
+.learn-more-container {
+  display: flex;
+  justify-content: center; /* Horizontally center the button */
+  align-items: center; /* Vertically center the button */
+  margin-top: 20px; /* Add some top margin to separate it from the previous slide */
+}
+
+/* Center the "Learn More" button */
+.center-button {
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  margin-top: 20px; /* Adjust the margin as needed */
+}
+
+/* Start statistics */
+.stats {
+  background-color: white;
+  padding-top: var(--secondary-color);
+  padding-bottom: var(--secondary);
+}
+.stats .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+.stats .box {
+  background-color: #004d4957;
+  box-shadow: var(--box-shadow);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition);
+}
+.stats .box:hover {
+  background-color: var(--secondary);
+}
+.stats .box > i {
+  width: 40px;
+  height: 40px;
+  background-color: #eee;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: var(--black-color);
+  transition: var(--transition);
+}
+.stats .box:hover i {
+  background-color: var(--primary-color);
+  color: white;
+}
+.stats .box .more p:first-child {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+.stats .box .more p:last-child {
+  font-size: 14px;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+.stats .box:hover .more p {
+  color: black;
+}
+/* End statistics */
+
+.search-bar {
+  display: flex;
+  justify-content:center ;
+  align-items: center;
+  height: 10vh;
+}
+
+.search-bar input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  width: 300px; /* Adjust the width as needed */
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #004D49;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style the button when hovered */
+.search-bar button:hover {
+  background-color: #00393C;
+}
+
+.hospital{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh; /* This centers the iframe vertically within the viewport */
+
+}
+
+    </style>
+</head>
+<body>
+    
+    <header class="header">
+        <div class="logo">
+            <img src="image 7" alt="" height="65" width="40">
+        </div>
+        
+
+        <nav class="navbar">
+            <a href="/TeleHealth-Website1/index.html" class="hover-underline"><b>Home</b></a>
+            <a href="/About/about.html" class="hover-underline"><b>About</b></a>
+            <!-- <a href="/d" class="hover-underline" target="_blank"><b>Diseases</b></a> -->
+            <a href="/Medicine/medicines.html" class="hover-underline"><b>Medicine</b></a>
+            <a href="/Mental Health/index.html" class="hover-underline"><b>Mental Health</b></a>
+            <a href="/Doctors/doctors.html" class="hover-underline"><b>Doctors</b></a>
+            <a href="/Appointment/apppointment.html" class="hover-underline"><b>Appointment</b></a>
+            <!-- <a href="hospital.html" class="hover-underline"><b>Hospital</b></a> -->
+            <!-- <a href="#diagnosis" class="hover-underline"><b>Diagnosis</b></a> -->
+            <!-- <a href="./donate.html" class="hover-underline"><b>Donate</b></a> -->
+            <!-- <a href="contact.html" class="hover-underline"><b>Contact Us</b></a> -->
+            
+        </nav>
+
+        <!-- <div class="icons">
+            <div id="login-btn" class="fas fa-user">
+                <a href="login.html" style="color: #004D49; text-decoration: none; font-size: 23px">Sign up / Login</a>
+            </div>
+        </div> -->
+
+    </header>
+
+    <br><br><br><br>
+
+    
+
+    <section class="about" id="about">
+
+        <h1 class="heading">about us</h1>
+        <div class="stats">
+            <div class="container">
+            <div class="box">
+                <i class="fas fa-users"></i>
+                <div class="more">
+                <p>150k+</p>
+                <p>Daily Users</p>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-bookmark"></i>
+                <div class="more">
+                <p>10L+</p>
+                <p>Patients treated</p>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-star"></i>
+                <div class="more">
+                <p>20k+</p>
+                <p>Successful Operations</p>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-user"></i>
+                <div class="more">
+                <p>150+</p>
+                <p>Daily Donars</p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <br><br><br><br>
+        <div class="container">
+
+            <figure class="about-image">
+                <img src="image 1" alt="" height="550" width="500">
+            </figure>
+
+            <div class="about-content">
+                <h3>Our Mission</h3>
+                <p>At <b style="font-family: 'Times New Roman', Times, serif; font-size: 20px;">TELEHEALTH</b>, our mission is to bridge the gap between patients and healthcare providers, simplifying the journey to better health. We are dedicated to providing a user-friendly platform that enables patients to easily find the right doctors, access valuable medical information, and make informed decisions about their health. Our commitment lies in creating a seamless and informative healthcare experience, empowering individuals to take charge of their well-being"</p>
+                <p>Furthermore, we believe in fostering a sense of community and social responsibility. We aim to educate and raise awareness by offering comprehensive medical resources, patient reviews, and insights from healthcare professionals. Through initiatives like donations, employment opportunities, and concession programs, we strive to make a positive impact on the healthcare ecosystem. At <b style="font-family: 'Times New Roman', Times, serif; font-size: 20px;">Swasthya</b>, our vision is to build a healthier and more informed society, where everyone has access to quality healthcare information and services.</p>    
+            </div>
+
+        </div>
+
+        <br><br><br>
+        <div class="container">
+
+            <div class="about-content">
+                <h3>The Vision:</h3>
+                <p>Swasthya Health, the brainchild of visionary entrepreneur Dr. Aanya Kapoor, emerged as a revolutionary force in the healthcare industry. Driven by a passion for holistic wellness and a mission to make quality healthcare accessible to all, Swasthya Health was founded in 2020.</p>
+            </div>
+
+        </div>
+
+        <br><br><br>
+        <div class="container">
+
+            <div class="about-content">
+                <h3>The Early Days:</h3>
+                <p>The journey TELEHEALYH began in a small, humble clinic in the heart of New York City. Dr. Kapoor, a renowned holistic practitioner, started her practice with the belief that healthcare should focus on not only treating illnesses but also on preventing them through lifestyle and natural remedies. She envisioned a world where healthcare was not just a service but a way of life.</p>
+            </div>
+
+        </div>
+
+        <br><br><br>
+                <div class="container">
+
+                    <div class="about-content">
+                        <h3>The Rise to Prominence:</h3>
+                        <p>Word quickly spread about Dr. Kapoor's unique approach to healthcare. Patients from all walks of life, from across the city and beyond, flocked to her clinic seeking her guidance. The clinic soon expanded to accommodate the growing number of patients.</p>
+                    </div>
+
+                </div>
+
+                <br><br><br>
+                <div class="container">
+
+                    <div class="about-content">
+                        <h3>The Birth of TELEHEALTH:</h3>
+                        <p>In 2022, Dr. Kapoor's vision outgrew the confines of her clinic. She founded Swasthya Health, a digital platform designed to provide holistic healthcare and wellness guidance to people around the world. The website offered a plethora of resources, from articles and videos to virtual consultations, allowing individuals to take control of their health.</p>
+                    </div>
+
+                </div>
+
+                <br><br><br>
+                <div class="container">
+
+                    <div class="about-content">
+                        <h3>Changing Lives Globally:</h3>
+                        <p>TELEHEALTH Luickly gained recognition for its exceptional services. Millions of people, not just from the United States but from all corners of the globe, embraced the platform. Patients and wellness enthusiasts found solace in the words of Dr. Kapoor and the community of experts she had gathered.</p>
+                    </div>
+
+                </div>
+
+                <br><br><br>
+                <div class="container">
+
+                    <div class="about-content">
+                        <h3>Expanding Horizons:</h3>
+                        <p>In the years that followed, TELEHEALTH grew beyond its digital presence. Dr. Kapoor's dream was to create a global network of wellness centers that embodied the principles of holistic healthcare. These centers, situated in major cities worldwide, offered in-person consultations, wellness retreats, and a range of services that merged traditional wisdom with modern science.</p>
+                    </div>
+
+                </div>
+
+                <br><br><br>
+                <div class="container">
+                    <div class="about-content">
+                        <h3>Awards and Recognition:</h3>
+                        <p>Swasthya Health's dedication to promoting health and wellness did not go unnoticed. The platform received numerous awards and recognitions, including the "Global Wellness Innovator" and "Digital Health Pioneer."</p>
+                    </div>
+                </div>
+
+                <br><br><br>
+                <div class="container">
+                    <div class="about-content">
+                        <h3>The Community of Experts:</h3>
+                        <p>The heart of TELEHEALTH was its community of experts—doctors, nutritionists, yoga instructors, and therapists who shared a common belief in the power of holistic wellness. Together, they touched the lives of millions and inspired them to live healthier, happier lives.</p>
+                    </div>
+                </div>
+
+                <br><br><br>
+                <div class="container">
+                    <div class="about-content">
+                        <h3>A Legacy of Wellness:</h3>
+                        <p>As the years passed,TELEHEALTH Health continued to evolve, adapting to the changing needs of society. The legacy of Dr. Aanya Kapoor lived on, with a new generation of visionary leaders carrying forward her vision.</p>
+                    </div>
+                </div>
+
+                <br><br><br>
+                <div class="container">
+                    <div class="about-content">
+                        <h3>Present Day:</h3>
+                        <p>Today, TELEHEALTHH is a global symbol of holistic wellness and a trusted name in healthcare. The platform continues to empower individuals to take charge of their health, guiding them toward a happier and healthier life.</p>
+                    </div>
+                </div>
+
+                <br><br><br>
+                <div class="container">
+                    <div class="about-content">
+                        <h3>The Future:</h3>
+                        <P>Health's journey is far from over. With cutting-edge technology, a commitment to research, and a global network of wellness centers, TELEHEALTH envisions a world where healthcare is synonymous with well-being. The future holds exciting possibilities, with the promise of a healthier and happier world for all.</p>
+                    </div>
+                </div>
+
+    </section>
+
+            
+    </section>
+    
+    
+
+    <section class="footer">
+
+        <div class="box-container">
+
+
+            <div class="box">
+                <h3><strong>Find Us Here</strong></h3>
+                
+                <div style="border: 2px #004D49; border-style: dotted;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.983347746455!2d72.83328527495452!3d19.064469752334894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c91130392c07%3A0x3c47bf391c8de931!2sThadomal%20Shahani%20Engineering%20College!5e0!3m2!1sen!2sin!4v1697261022269!5m2!1sen!2sin" height="400" width="635" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
+                 
+                <p>Opp Thadomal Shahani Engineering College, Linking Road, Bandra (W), Mumbai-50</p>
+
+            </div>
+
+            <div style="padding: 20%; padding-top: 10%;">
+                <div class="box">
+
+                    <div class="box">
+                        <h3><strong>contact us</strong></h3>
+                        <a href="tel:+91 98765 43210" target="_blank" class="link" style="text-decoration: none;">+91 98765 43210</a>
+                        <a href="mailto:heathcare@Telehealth.in" target="_blank" class="link" style="text-decoration: none;">heathcare@Swasthya.in</a>
+                    </div>
+    
+                    <br><br><br><br><br><br>
+                    <h3><strong>Social Media</strong></h3>
+                    <div class="share">
+                        <a href="#" class="fab fa-facebook-f"></a>
+                        <a href="#" class="fab fa-twitter"></a>
+                        <a href="#" class="fab fa-instagram"></a>
+                        <a href="#" class="fab fa-linkedin"></a>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+
+        <br><br><br>
+       
+    </section>
+
+</body>
+</html>

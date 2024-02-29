@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Telehealth System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="checkbox"] {
+            margin-bottom: 20px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px 0;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .message {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .create-account {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .create-account a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .create-account a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="login-email">Email:</label>
+            <input type="email" id="login-email" name="login-email" required>
+
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="login-password" required>
+            <input type="checkbox" id="show-password">
+            <label for="show-password">Show Password</label>
+
+            <button type="submit">Login</button>
+            <div class="message" id="login-message"></div>
+        </form>
+
+        <div class="create-account">
+            <a href="#" id="create-account-link">Create Account</a>
+        </div>
+
+        <div class="forgot-password">
+            <a href="#" id="forgot-password-link">Forgot Password?</a>
+        </div>
+    </div>
+
+    <div class="container" id="register-container" style="display: none;">
+        <h2>Create Account</h2>
+        <form id="register-form">
+            <label for="register-email">Email:</label>
+            <input type="email" id="register-email" name="register-email" required>
+
+            <label for="register-password">Password:</label>
+            <input type="password" id="register-password" name="register-password" required>
+
+            <button type="submit">Create Account</button>
+            <div class="message" id="register-message"></div>
+        </form>
+    </div>
+
+    <div class="container" id="forgot-password-container" style="display: none;">
+        <h2>Forgot Password</h2>
+        <form id="forgot-password-form">
+            <label for="forgot-email">Email:</label>
+            <input type="email" id="forgot-email" name="forgot-email" required>
+
+            <button type="submit">Reset Password</button>
+            <div class="message" id="forgot-message"></div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('show-password').addEventListener('change', function() {
+            const loginPassword = document.getElementById('login-password');
+            if (this.checked) {
+                loginPassword.type = 'text';
+            } else {
+                loginPassword.type = 'password';
+            }
+        });
+
+        document.getElementById('create-account-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('register-container').style.display = 'block';
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('forgot-password-container').style.display = 'none';
+        });
+
+        document.getElementById('forgot-password-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('forgot-password-container').style.display = 'block';
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('register-container').style.display = 'none';
+        });
+
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            // Register user (e.g., send to server for registration)
+            // Simulated message
+            document.getElementById('register-message').textContent = 'Creating account...';
+            setTimeout(() => {
+                document.getElementById('register-message').textContent = 'Account created successfully!';
+            }, 2000);
+        });
+
+        document.getElementById('forgot-password-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('forgot-email').value;
+            // Handle password reset (e.g., send email with reset instructions)
+            // Simulated message
+            document.getElementById('forgot-message').textContent = 'Resetting password...';
+            setTimeout(() => {
+                document.getElementById('forgot-message').textContent = 'Password reset instructions sent to your email.';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

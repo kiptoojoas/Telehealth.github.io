@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment mode</title>
+    <style>
+        /* Add some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        #card-element {
+            margin-bottom: 20px;
+        }
+        #card-errors {
+            color: red;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Payment </h1>
+    
+    <form id="payment-form">
+        <label for="name">Name on Card</label>
+        <input type="text" id="name" placeholder="John Doe" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="john@example.com" required>
+
+        <label for="card-element">
+            Credit or debit card
+        </label>
+        <div id="card-element">
+            <!-- A Stripe Element will be inserted here. -->
+        </div>
+
+        <!-- Used to display form errors. -->
+        <div id="card-errors" role="alert"></div>
+
+        <button type="submit" id="stripe-submit">Pay with Card</button>
+        <button type="button" id="mpesa-submit">Pay with M-Pesa</button>
+    </form>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        // Set your Stripe publishable key
+        var stripe = Stripe('YOUR_STRIPE_PUBLISHABLE_KEY');
+
+        var elements = stripe.elements();
+        var cardElement = elements.create('card');
+
+        cardElement.mount('#card-element');
+
+        var form = document.getElementById('payment-form');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            stripe.createToken(cardElement, {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value
+            }).then(function(result) {
+                if (result.error) {
+                    var errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = result.error.message;
+                } else {
+                    // Token created successfully, send token to server
+                    stripeTokenHandler(result.token);
+                }
+            });
+        });
+
+        function stripeTokenHandler(token) {
+            // Insert the token ID into the form so it gets submitted to the server
+            var form = document.getElementById('payment-form');
+            var hiddenInput = document.createElement('input');
+            hiddenInput.setAttribute('type', 'hidden');
+            hiddenInput.setAttribute('name', 'stripeToken');
+            hiddenInput.setAttribute('value', token.id);
+            form.appendChild(hiddenInput);
+
+            // Submit the form
+            form.submit();
+        }
+
+        // M-Pesa payment handling
+        var mpesaButton = document.getElementById('mpesa-submit');
+        mpesaButton.addEventListener('click', function() {
+            // Here you would initiate the M-Pesa payment process
+            // This typically involves sending a request to your server to handle the payment using M-Pesa API
+            // The actual implementation would depend on the M-Pesa integration service you're using
+            alert('Initiating M-Pesa payment...');
+        });
+    </script>
+</body>
+</html>

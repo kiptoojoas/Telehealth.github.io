@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Nutrition</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        h1, h2 {
+            margin-bottom: 20px;
+        }
+
+        section {
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        form button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hospital Nutrition</h1>
+    </header>
+
+    <section id="nutrition-info">
+        <h2>Nutrition Services</h2>
+        <p>Our hospital offers comprehensive nutrition services to promote health and well-being. Our team of registered dietitians works with patients to create personalized nutrition plans tailored to their needs.</p>
+        <p>We provide nutrition counseling, meal planning, and education on various dietary needs including weight management, diabetes, heart health, and more.</p>
+    </section>
+
+    <section id="nutrition-form">
+        <h2>Submit Your Nutrition Query</h2>
+        <form id="query-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="query">Your Query:</label>
+            <textarea id="query" name="query" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Hospital Nutrition. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('query-form');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                const formData = new FormData(form);
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const query = formData.get('query');
+
+                // Here you can send the form data to your server for processing
+                console.log('Name:', name);
+                console.log('Email:', email);
+                console.log('Query:', query);
+
+                // For demonstration, clear the form after submission
+                form.reset();
+                alert('Your query has been submitted successfully!');
+            });
+        });
+    </script>
+</body>
+</html>
